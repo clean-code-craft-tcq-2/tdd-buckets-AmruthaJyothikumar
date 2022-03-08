@@ -6,3 +6,9 @@ currentrange getrange(int *CurrentSamples){
   range = {4,5};
   return range;
 }
+
+int getcount(int *CurrentSamples){
+  int count;
+  count = sizeof(CurrentSamples) / sizeof(CurrentSamples[0]);
+  return count;
+}
