@@ -3,12 +3,28 @@
 
 currentrange getrange(int *CurrentSamples){
   currentrange range;
-  range = {4,5};
+  range.min = findminvalue;
+  range.max = findmaxvalue;
+  range.count = getcountofcontinousrange;
   return range;
 }
 
-int getcount(int *CurrentSamples){
-  int count;
-  count = sizeof(CurrentSamples) / sizeof(CurrentSamples[0]);
-  return count;
+
+int getcountofcontinousrange(int *CurrentSamples){
+  int totallengthofinput;
+  int diff = 1;
+  int continuouscount;
+  totallengthofinput = sizeof(CurrentSamples) / sizeof(CurrentSamples[0]);
+  for(i=0; i<= totallengthofinput ;i++){
+     diff = CurrentSamples[i+1]- CurrentSamples[i];
+     if((diff == 0) || (diff == 1) || diff(==2)
+        {
+          continuouscount++;
+        }
+        else
+        {
+          continuouscount = 0;
+        }
+    }
+  return continuouscount;
 }
