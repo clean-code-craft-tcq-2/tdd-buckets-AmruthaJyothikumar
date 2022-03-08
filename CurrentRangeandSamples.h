@@ -6,3 +6,4 @@ typedef struct {
 } currentrange;
 
 currentrange getrange(int *CurrentSamples);
+int getcount(int *CurrentSamples); 
