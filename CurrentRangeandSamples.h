@@ -1,8 +1,9 @@
 #pragma once
 
 typedef struct {
-  double lowerlimit;
-  double upperlimit;
+  int min;
+  int max;
+  int count;
 } currentrange;
 
 currentrange getrange(int *CurrentSamples);
