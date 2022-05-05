@@ -1,73 +1,71 @@
 #include <stdio.h>
 #include "CurrentRangeandSamples.h"
 
-bool validateInput(int *Input , int length)
+int NumberofContRange = 0;
+int count = 1;
+
+bool validateCurrentReadingInputSequence(int *InputSequence , int length)
 {
 	int i;
-  bool validity;
 	for(i= 0; i < length; i++)
 	{
-		if(Input[i] >= 0)
+		if(InputSequence[i] >= 0)
 		{
-			sortInput(Input, length);			
-			validity =  true;
+			sortInputSeq(InputSequence, length);			
+			return true;
 		}	
 		else
 		{
-			validity =  false;
+			return false;
 		}
 	}
-  if(validity == true){
-    sortInput(Input, length);		
-  }
-  else{
-  }
-return validity;
+
 }
 
-void sortInput(int *Input , int length)
+void sortInputSeq(int *InputSequence , int length)
 {
 	int i , j , temp ;
 	for(i=0; i< length; i++)
 	{
 		for(j=i+1; j< length; j++)
 		{
-			if(Input[i] > Input[j])
+			if(InputSequence[i] > InputSequence[j])
 			{
-				temp = Input[i];
-				Input[i] = Input[j];
-				Input[j] = temp; 
+				temp = InputSequence[i];
+				InputSequence[i] = InputSequence[j];
+				InputSequence[j] = temp; 
 			}
 		}	
 	}
 }
 
-int findContinousCount(int *InputSamples, int NoofSamples)
+int numberofContinuousRange(int *ChargingCurrentReadings, int numOfCCReadings)
 {
-    int i, j, SampleDiff;
-    if(validateInput(InputSamples, NoofSamples) == true)
+    int i, j, curRead;
+    if(validateCurrentReadingInputSequence(ChargingCurrentReadings, numOfCCReadings) == true)
     {
-	    for(i = 0; i < NoofSamples; i++)
+	    for(i = 0; i < numOfCCReadings; i++)
 	    {
-		  SampleDiff = (InputSamples[i+1] -  InputSamples[i]);
-		  if((SampleDiff == 0) || (SampleDiff == 1))
-		  {
-			  Continouscount++;
-	  	}
+		curRead = (ChargingCurrentReadings[i+1] -  ChargingCurrentReadings[i]);
+		if((curRead == 0) || (curRead == 1))
+		{
+			count++;
+		}
 		
 	    }
-	   return Continouscount;
+	   return count;
     }
 }
 
-RangeReading GetCurrentRange( int *InputSamplesSorted)
+RangeReading detectCurrentReadingAndFormatOutputInCSVFormat( int min, int max, int numberInRange)
 {
- int ContinousCount = findContinousCount;
 	RangeReading rangeReading;
-	rangeReading.StartIndex= InputSamplesSorted[0];
-	rangeReading.EndIndex= InputSamplesSorted[ContinousCount-1];
-	rangeReading.NumOfReadingsInRange= ContinousCount;
-	printf(" %d - %d , %d\n",  rangeReading.StartIndex,rangeReading.EndIndex , rangeReading.NumOfReadingsInRange);	 
+	char ChargingCurrentReadings;
+	rangeReading.StartIndex=min;
+	rangeReading.EndIndex= max;
+	rangeReading.NumOfReadingsInRange= numberInRange;
+	printf( " %d - %d , %d",  min, max , numberInRange); 
+
 	return rangeReading;
 }
 
