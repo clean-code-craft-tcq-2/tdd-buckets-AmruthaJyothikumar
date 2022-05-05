@@ -2,7 +2,7 @@
 
 #include "test/catch.hpp"
 #include "CurrentRangeandSamples.h"
-#include "ADCSensorReading.h"
+#include "ADCInput.h"
 
 TEST_CASE("Case for validate current reading input sequence and find the continuous range") {
   int ChargingCurrentReadings[] = {4,5};
