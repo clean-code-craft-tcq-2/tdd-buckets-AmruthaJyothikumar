@@ -1,10 +1,17 @@
 #pragma once
 
-typedef struct {
-  int min;
-  int max;
-  int count;
-} currentrange;
+#include <stdio.h>
+#include <stdbool.h>
 
-currentrange getrange(int *CurrentSamples);
-int getcount(int *CurrentSamples); 
+
+typedef struct{
+	int StartIndex;
+	int EndIndex;
+	int NumOfReadingsInRange;
+}RangeReading;
+
+extern int numberofContinuousRange( int *ChargingCurrentReadings, int numOfCCReadings);
+extern bool validateCurrentReadingInputSequence(int *InputSequence , int length);
+extern void sortInputSeq(int *InputSequence , int length);
+RangeReading detectCurrentReadingAndFormatOutputInCSVFormat( int min, int max, int numberInRange);
+void printOutputInCSV(char  ChargingCurrentReadings);; 
