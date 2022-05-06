@@ -38,12 +38,12 @@ void sortInput(int *InputSequence , int length)
 	}
 }
 
-int numberofContinuousRange(int *InputReadings, int numOfCCReadings)
+int numberofContinuousRange(int *InputReadings, int NumberofReadings)
 {
     int i, j, curRead;
-    if(validateInput(InputReadings, numOfCCReadings) == true)
+    if(validateInput(InputReadings, NumberofReadings) == true)
     {
-	    for(i = 0; i < numOfCCReadings; i++)
+	    for(i = 0; i < NumberofReadings; i++)
 	    {
 		curRead = (InputReadings[i+1] -  InputReadings[i]);
 		if((curRead == 0) || (curRead == 1))
