@@ -1,4 +1,4 @@
-#include "ADCSensorReading.h"
+#include "ADCInput.h"
 
 int maxAnalogToDigitalConversion(int ADC_Resolution)
 {
