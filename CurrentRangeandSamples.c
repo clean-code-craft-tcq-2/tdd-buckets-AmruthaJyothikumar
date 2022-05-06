@@ -38,14 +38,14 @@ void sortInput(int *InputSequence , int length)
 	}
 }
 
-int numberofContinuousRange(int *ChargingCurrentReadings, int numOfCCReadings)
+int numberofContinuousRange(int *InputReadings, int numOfCCReadings)
 {
     int i, j, curRead;
-    if(validateInput(ChargingCurrentReadings, numOfCCReadings) == true)
+    if(validateInput(InputReadings, numOfCCReadings) == true)
     {
 	    for(i = 0; i < numOfCCReadings; i++)
 	    {
-		curRead = (ChargingCurrentReadings[i+1] -  ChargingCurrentReadings[i]);
+		curRead = (InputReadings[i+1] -  InputReadings[i]);
 		if((curRead == 0) || (curRead == 1))
 		{
 			count++;
@@ -59,7 +59,7 @@ int numberofContinuousRange(int *ChargingCurrentReadings, int numOfCCReadings)
 RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange)
 {
 	RangeReading rangeReading;
-	char ChargingCurrentReadings;
+	char InputReadings;
 	rangeReading.StartIndex=min;
 	rangeReading.EndIndex= max;
 	rangeReading.NumOfReadingsInRange= numberInRange;
