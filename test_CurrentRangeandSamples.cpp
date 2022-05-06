@@ -8,7 +8,7 @@ TEST_CASE("Check whether input sequence is valid, get continous range") {
   int InputReadings[] = {4,5,6};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
-  REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 3);
+  REQUIRE(findContinuousRangeCount(InputReadings, NumberofReadings) == 3);
 }
 
 TEST_CASE("Check for negative inputs") {
