@@ -5,7 +5,7 @@
 #include "ADCInput.h"
 
 TEST_CASE("Check whether input sequence is valid, get continous range") {
-  int InputReadings[] = {4,5};
+  int InputReadings[] = {4,8};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
   REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 2);
