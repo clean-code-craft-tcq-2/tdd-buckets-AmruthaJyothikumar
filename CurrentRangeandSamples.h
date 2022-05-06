@@ -10,8 +10,8 @@ typedef struct{
 	int NumOfReadingsInRange;
 }RangeReading;
 
-extern int numberofContinuousRange( int *ChargingCurrentReadings, int numOfCCReadings);
+extern int numberofContinuousRange( int *InputReadings, int numOfCCReadings);
 extern bool validateInput(int *InputSequence , int length);
 extern void sortInput(int *InputSequence , int length);
 RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange);
-void printOutputInCSV(char  ChargingCurrentReadings);; 
+void printOutputInCSV(char  InputReadings);; 
