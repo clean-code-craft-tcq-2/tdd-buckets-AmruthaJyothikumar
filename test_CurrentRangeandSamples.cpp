@@ -6,27 +6,27 @@
 
 TEST_CASE("Case for validate current reading input sequence and find the continuous range") {
   int InputReadings[] = {4,5};
-  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  REQUIRE(validateInput(InputReadings,numOfCCReadings) == true);
-  REQUIRE(numberofContinuousRange(InputReadings, numOfCCReadings) == 2);
+  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
+  REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 2);
 }
 
 TEST_CASE("Case for checking the given array is invalid with Negative numbers") {
   int InputReadings[] = {-3, 3 ,-5, -4, -3, 11, 12};
-  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  REQUIRE(validateInput(InputReadings,numOfCCReadings) == false);
+  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,NumberofReadings) == false);
 }
 
 TEST_CASE("Case for checking the given array in the ascending order") {
   int InputReadings[] = {3, 3 ,5, 4};
-  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  REQUIRE(validateInput(InputReadings,numOfCCReadings) == true);
+  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
 
 }
 
 TEST_CASE("Case checks the given current reading for csv format construction") {
   int InputReadings[] = {3, 3 ,5, 4};
-  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   int expectedStartIndex = 3, expectedEndIndex = 5 , expectedNumOfReadingsInRange = 4;
   char *CurrentReading ;
   char *expectedCurrentReading = "3-5,4" ; 
