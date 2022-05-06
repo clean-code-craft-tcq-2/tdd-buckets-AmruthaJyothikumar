@@ -7,20 +7,20 @@
 TEST_CASE("Case for validate current reading input sequence and find the continuous range") {
   int ChargingCurrentReadings[] = {4,5};
   int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateCurrentReadingInputSequence(ChargingCurrentReadings,numOfCCReadings) == true);
+  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == true);
   REQUIRE(numberofContinuousRange(ChargingCurrentReadings, numOfCCReadings) == 2);
 }
 
 TEST_CASE("Case for checking the given array is invalid with Negative numbers") {
   int ChargingCurrentReadings[] = {-3, 3 ,-5, -4, -3, 11, 12};
   int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateCurrentReadingInputSequence(ChargingCurrentReadings,numOfCCReadings) == false);
+  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == false);
 }
 
 TEST_CASE("Case for checking the given array in the ascending order") {
   int ChargingCurrentReadings[] = {3, 3 ,5, 4};
   int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateCurrentReadingInputSequence(ChargingCurrentReadings,numOfCCReadings) == true);
+  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == true);
 
 }
 
