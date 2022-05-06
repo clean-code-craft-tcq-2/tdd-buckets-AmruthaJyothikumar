@@ -4,25 +4,25 @@
 #include "CurrentRangeandSamples.h"
 #include "ADCInput.h"
 
-TEST_CASE("Case for validate current reading input sequence and find the continuous range") {
+TEST_CASE("Check whether input sequence is valid") {
   int InputReadings[] = {4,5};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
   REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 2);
 }
 
-TEST_CASE("Case for checking the given array is invalid with Negative numbers") {
-  int InputReadings[] = {-3, 3 ,-5, -4, -3, 11, 12};
+TEST_CASE("Get number of contionous range") {
+  int InputReadings[] = {4,5,6};
+  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 3);
+}
+
+TEST_CASE("Check for negative inputs") {
+  int InputReadings[] = {3, -4 ,-5, 4, 3, 11, 12};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   REQUIRE(validateInput(InputReadings,NumberofReadings) == false);
 }
 
-TEST_CASE("Case for checking the given array in the ascending order") {
-  int InputReadings[] = {3, 3 ,5, 4};
-  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  REQUIRE(validateInput(InputReadings,NumberofReadings) == true);
-
-}
 
 TEST_CASE("Case checks the given current reading for csv format construction") {
   int InputReadings[] = {3, 3 ,5, 4};
