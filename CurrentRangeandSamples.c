@@ -39,7 +39,7 @@ void sortInput(int *InputSequence , int length)
 	}
 }
 
-int numberofContinuousRange(int *InputReadings, int NumberofReadings)
+int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
 {
     int i, j, curRead;
     if(validateInput(InputReadings, NumberofReadings) == true)
