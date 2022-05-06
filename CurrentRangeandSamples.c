@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include "CurrentRangeandSamples.h"
 
+typedef struct{
+	int StartIndex;
+	int EndIndex;
+	int NumOfReadingsInRange;
+}RangeReading;
 int NumberofContRange = 0;
 int count = 1;
+
 
 bool validateInput(int *InputSequence , int length)
 {
