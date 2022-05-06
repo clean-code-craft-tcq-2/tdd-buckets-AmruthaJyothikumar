@@ -4,14 +4,14 @@
 int NumberofContRange = 0;
 int count = 1;
 
-bool validateCurrentReadingInputSequence(int *InputSequence , int length)
+bool validateInput(int *InputSequence , int length)
 {
 	int i;
 	for(i= 0; i < length; i++)
 	{
 		if(InputSequence[i] >= 0)
 		{
-			sortInputSeq(InputSequence, length);			
+			sortInput(InputSequence, length);			
 			return true;
 		}	
 		else
@@ -19,10 +19,9 @@ bool validateCurrentReadingInputSequence(int *InputSequence , int length)
 			return false;
 		}
 	}
-
 }
 
-void sortInputSeq(int *InputSequence , int length)
+void sortInput(int *InputSequence , int length)
 {
 	int i , j , temp ;
 	for(i=0; i< length; i++)
@@ -42,7 +41,7 @@ void sortInputSeq(int *InputSequence , int length)
 int numberofContinuousRange(int *ChargingCurrentReadings, int numOfCCReadings)
 {
     int i, j, curRead;
-    if(validateCurrentReadingInputSequence(ChargingCurrentReadings, numOfCCReadings) == true)
+    if(validateInput(ChargingCurrentReadings, numOfCCReadings) == true)
     {
 	    for(i = 0; i < numOfCCReadings; i++)
 	    {
@@ -57,7 +56,7 @@ int numberofContinuousRange(int *ChargingCurrentReadings, int numOfCCReadings)
     }
 }
 
-RangeReading detectCurrentReadingAndFormatOutputInCSVFormat( int min, int max, int numberInRange)
+RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange)
 {
 	RangeReading rangeReading;
 	char ChargingCurrentReadings;
@@ -65,7 +64,6 @@ RangeReading detectCurrentReadingAndFormatOutputInCSVFormat( int min, int max, i
 	rangeReading.EndIndex= max;
 	rangeReading.NumOfReadingsInRange= numberInRange;
 	printf( " %d - %d , %d",  min, max , numberInRange); 
-
 	return rangeReading;
 }
 
