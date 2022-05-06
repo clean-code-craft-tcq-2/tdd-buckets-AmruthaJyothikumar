@@ -11,12 +11,6 @@ TEST_CASE("Check whether input sequence is valid") {
   REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 2);
 }
 
-TEST_CASE("Get number of contionous range") {
-  int InputReadings[] = {4,5,6};
-  int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  REQUIRE(numberofContinuousRange(InputReadings, NumberofReadings) == 3);
-}
-
 TEST_CASE("Check for negative inputs") {
   int InputReadings[] = {-3,-4 ,-5, 4, 3, -11, 12};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
