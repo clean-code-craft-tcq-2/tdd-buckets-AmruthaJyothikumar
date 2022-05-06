@@ -18,7 +18,7 @@ TEST_CASE("Get number of contionous range") {
 }
 
 TEST_CASE("Check for negative inputs") {
-  int InputReadings[] = {3, -4 ,-5, 4, 3, 11, 12};
+  int InputReadings[] = {-3,-4 ,-5, 4, 3, -11, 12};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   REQUIRE(validateInput(InputReadings,NumberofReadings) == false);
 }
