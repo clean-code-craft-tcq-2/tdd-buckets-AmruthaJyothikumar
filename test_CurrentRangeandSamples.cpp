@@ -5,28 +5,28 @@
 #include "ADCInput.h"
 
 TEST_CASE("Case for validate current reading input sequence and find the continuous range") {
-  int ChargingCurrentReadings[] = {4,5};
-  int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == true);
-  REQUIRE(numberofContinuousRange(ChargingCurrentReadings, numOfCCReadings) == 2);
+  int InputReadings[] = {4,5};
+  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,numOfCCReadings) == true);
+  REQUIRE(numberofContinuousRange(InputReadings, numOfCCReadings) == 2);
 }
 
 TEST_CASE("Case for checking the given array is invalid with Negative numbers") {
-  int ChargingCurrentReadings[] = {-3, 3 ,-5, -4, -3, 11, 12};
-  int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == false);
+  int InputReadings[] = {-3, 3 ,-5, -4, -3, 11, 12};
+  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,numOfCCReadings) == false);
 }
 
 TEST_CASE("Case for checking the given array in the ascending order") {
-  int ChargingCurrentReadings[] = {3, 3 ,5, 4};
-  int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
-  REQUIRE(validateInput(ChargingCurrentReadings,numOfCCReadings) == true);
+  int InputReadings[] = {3, 3 ,5, 4};
+  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
+  REQUIRE(validateInput(InputReadings,numOfCCReadings) == true);
 
 }
 
 TEST_CASE("Case checks the given current reading for csv format construction") {
-  int ChargingCurrentReadings[] = {3, 3 ,5, 4};
-  int numOfCCReadings = sizeof(ChargingCurrentReadings) / sizeof(ChargingCurrentReadings[0]);
+  int InputReadings[] = {3, 3 ,5, 4};
+  int numOfCCReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
   int expectedStartIndex = 3, expectedEndIndex = 5 , expectedNumOfReadingsInRange = 4;
   char *CurrentReading ;
   char *expectedCurrentReading = "3-5,4" ; 
