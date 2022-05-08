@@ -3,9 +3,9 @@
 #include <stdbool.h>
 
 typedef struct{
-	int StartIndex;
-	int EndIndex;
-	int NumOfReadingsInRange;
+	int Min;
+	int Max;
+	int Count;
 }RangeReading;
 
 extern int findContinuousRangeCount( int *InputReadings, int NumberofReadings);
