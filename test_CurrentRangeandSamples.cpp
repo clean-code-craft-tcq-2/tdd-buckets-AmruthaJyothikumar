@@ -21,13 +21,17 @@ TEST_CASE("Check for negative inputs") {
 TEST_CASE("Check for range to print") {
   int InputReadings[] = {3, 3 ,5, 4,3};
   int NumberofReadings = sizeof(InputReadings) / sizeof(InputReadings[0]);
-  int expectedStartIndex = 3, expectedEndIndex = 5 , expectedNumOfReadingsInRange = 5;
+	
+  int expectedMin = 3;
+  int expectedMax = 5; 
+  int expectedNumOfReadingsInRange = 5;
+	
   char *OutputReading ;
   char *expectedOutputReading = "3-5,5" ; 
   RangeReading rangeReading;
-  rangeReading = detectRangeandOutputInCSVFormat(expectedStartIndex,expectedEndIndex,expectedNumOfReadingsInRange);
-  REQUIRE(rangeReading.Min == expectedStartIndex);
-  REQUIRE(rangeReading.Max == expectedEndIndex);
+  rangeReading = detectRangeandOutputInCSVFormat(expectedMin,expectedMax,expectedNumOfReadingsInRange);
+  REQUIRE(rangeReading.Min == expectedMin);
+  REQUIRE(rangeReading.Max == expectedMax);
   REQUIRE(rangeReading.Count == expectedNumOfReadingsInRange);
 }
   
