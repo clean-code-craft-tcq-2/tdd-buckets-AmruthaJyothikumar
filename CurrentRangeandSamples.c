@@ -59,11 +59,11 @@ int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
 RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange,int *InputReadings, int NumberofReadings)
 {
 	RangeReading rangeReading;
-	char InputReadings;
+	//char InputReadings;
 	rangeReading.StartIndex=min;
 	rangeReading.EndIndex= max;
 	//rangeReading.NumOfReadingsInRange= numberInRange;
-	rangeReading.NumOfReadingsInRange = findContinuousRangeCount((InputReadings, NumberofReadings);
+	rangeReading.NumOfReadingsInRange = findContinuousRangeCount(InputReadings, NumberofReadings);
 	printf( " %d - %d , %d",  min, max , numberInRange); 
 	return rangeReading;
 }
