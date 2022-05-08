@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "CurrentRangeandSamples.h"
 
-int NumberofContRange = 0;
-int count = 1;
+int Rangecount = 1;
 
 
 bool validateInput(int *InputSequence , int length)
@@ -49,21 +48,22 @@ int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
 		ReadingDifference = (InputReadings[i+1] -  InputReadings[i]);
 		if((ReadingDifference == 0) || (ReadingDifference == 1))
 		{
-			count++;
+			Rangecount++;
 		}
 		
 	    }
-	   return count;
+	   return Rangecount;
     }
 }
 
-RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange)
+RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange,int *InputReadings, int NumberofReadings)
 {
 	RangeReading rangeReading;
 	char InputReadings;
 	rangeReading.StartIndex=min;
 	rangeReading.EndIndex= max;
-	rangeReading.NumOfReadingsInRange= numberInRange;
+	//rangeReading.NumOfReadingsInRange= numberInRange;
+	rangeReading.NumOfReadingsInRange = findContinuousRangeCount((InputReadings, NumberofReadings);
 	printf( " %d - %d , %d",  min, max , numberInRange); 
 	return rangeReading;
 }
