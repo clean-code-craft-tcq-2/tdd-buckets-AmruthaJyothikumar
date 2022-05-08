@@ -26,9 +26,9 @@ TEST_CASE("Case checks the given current reading for csv format construction") {
   char *expectedCurrentReading = "3-5,4" ; 
   RangeReading rangeReading;
   rangeReading = detectRangeandOutputInCSVFormat(expectedStartIndex,expectedEndIndex,expectedNumOfReadingsInRange);
-  REQUIRE(rangeReading.StartIndex == expectedStartIndex);
-  REQUIRE(rangeReading.EndIndex == expectedEndIndex);
-  REQUIRE(rangeReading.NumOfReadingsInRange == expectedNumOfReadingsInRange);
+  REQUIRE(rangeReading.Min == expectedStartIndex);
+  REQUIRE(rangeReading.Max == expectedEndIndex);
+  REQUIRE(rangeReading.Count == expectedNumOfReadingsInRange);
 
 }
   
@@ -44,9 +44,9 @@ TEST_CASE("Checks for the current values for given ADC values from the array") {
 	RangeReading rangeReading;
 	ChargingCurrentSenseValue(ADCValues, numberOfSamples, ADC_Resolution, maxCurrentValue, currentSenseValues);
 	 rangeReading = detectRangeandOutputInCSVFormat(expectedStartIndex,expectedEndIndex,expectedNumOfReadingsInRange);
- 	 REQUIRE(rangeReading.StartIndex == expectedStartIndex);
- 	 REQUIRE(rangeReading.EndIndex == expectedEndIndex);
- 	 REQUIRE(rangeReading.NumOfReadingsInRange == expectedNumOfReadingsInRange);
+ 	 REQUIRE(rangeReading.Min == expectedStartIndex);
+ 	 REQUIRE(rangeReading.Max == expectedEndIndex);
+ 	 REQUIRE(rangeReading.Count == expectedNumOfReadingsInRange);
 
 }
 
