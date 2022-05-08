@@ -1,6 +1,6 @@
 #include "ADCInput.h"
 
-int maxAnalogToDigitalConversion(int ADC_Resolution)
+int ScalingFactor(int ADC_Resolution)
 {
 	return (pow(2,ADC_Resolution) - 2);
 }
@@ -11,8 +11,8 @@ void ConvertAnalogToDigital(int ADCInput[], int numberOfSamples, int ADC_Resolut
 	
 	for (int i=0; i< numberOfSamples; i++)
 	{
-		ConversionFactor = (ADCInput[i]) / (maxAnalogToDigitalConversion(ADC_Resolution));
-		currentValue = (maxCurrentValue * ConversionFactor) / (maxAnalogToDigitalConversion(ADC_Resolution));
+		ConversionFactor = (ADCInput[i]) / (ScalingFactor(ADC_Resolution));
+		currentValue = (maxCurrentValue * ConversionFactor) / (ScalingFactor(ADC_Resolution));
 		currentConversionValues[i] = round(currentValue);
 		if(currentConversionValues[i] < 0)
 			currentConversionValues[i] = abs(currentConversionValues[i]);
