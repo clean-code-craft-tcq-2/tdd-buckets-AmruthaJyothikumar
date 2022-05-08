@@ -45,7 +45,7 @@ TEST_CASE("Checks for the current values for given ADC values from the array") {
 	int currentSenseValues[numberOfSamples];
 	int expectedStartIndex = 0, expectedEndIndex = 5 , expectedNumOfReadingsInRange = 6;
 	RangeReading rangeReading;
-	ChargingCurrentSenseValue(ADCValues, numberOfSamples, ADC_Resolution, maxCurrentValue, currentSenseValues);
+	GetCurrentSensorValue(ADCValues, numberOfSamples, ADC_Resolution, maxCurrentValue, currentSenseValues);
 	 rangeReading = detectRangeandOutputInCSVFormat(expectedStartIndex,expectedEndIndex,expectedNumOfReadingsInRange);
  	 REQUIRE(rangeReading.Min == expectedStartIndex);
  	 REQUIRE(rangeReading.Max == expectedEndIndex);
@@ -62,7 +62,7 @@ TEST_CASE("Checks for the ignore the error when given ADC value is 4095") {
 	int currentSenseValues[numberOfSamples];
 	int expectedADC_Resolution = 12, expectedmaxCurrentValue = 10 , expectednumberOfSamples = 1;
 	
-	ChargingCurrentSenseValue(ADCValues, numberOfSamples, ADC_Resolution, maxCurrentValue, currentSenseValues);
+	GetCurrentSensorValue(ADCValues, numberOfSamples, ADC_Resolution, maxCurrentValue, currentSenseValues);
 	REQUIRE(ADC_Resolution == expectedADC_Resolution);
   	REQUIRE(maxCurrentValue == expectedmaxCurrentValue);
   	REQUIRE(numberOfSamples == expectednumberOfSamples);
