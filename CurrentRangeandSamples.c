@@ -2,25 +2,23 @@
 #include "CurrentRangeandSamples.h"
 
 int Rangecount = 1;
-
-
-bool validateInput(int *InputSequence , int length)
+int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
 {
-	int i;
-	for(i= 0; i < length; i++)
-	{
-		if(InputSequence[i] >= 0)
+    int i, j, ReadingDifference;
+    if(validateInput(InputReadings, NumberofReadings) == true)
+    {
+	    for(i = 0; i < NumberofReadings; i++)
+	    {
+		ReadingDifference = (InputReadings[i+1] -  InputReadings[i]);
+		if((ReadingDifference == 0) || (ReadingDifference == 1))
 		{
-			sortInput(InputSequence, length);			
-			return true;
-		}	
-		else
-		{
-			return false;
+			Rangecount++;
 		}
-	}
+		
+	    }
+	   return Rangecount;
+    }
 }
-
 void sortInput(int *InputSequence , int length)
 {
 	int i , j , temp ;
@@ -38,22 +36,21 @@ void sortInput(int *InputSequence , int length)
 	}
 }
 
-int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
+bool validateInput(int *InputSequence , int length)
 {
-    int i, j, ReadingDifference;
-    if(validateInput(InputReadings, NumberofReadings) == true)
-    {
-	    for(i = 0; i < NumberofReadings; i++)
-	    {
-		ReadingDifference = (InputReadings[i+1] -  InputReadings[i]);
-		if((ReadingDifference == 0) || (ReadingDifference == 1))
+	int i;
+	for(i= 0; i < length; i++)
+	{
+		if(InputSequence[i] >= 0)
 		{
-			Rangecount++;
+			sortInput(InputSequence, length);			
+			return true;
+		}	
+		else
+		{
+			return false;
 		}
-		
-	    }
-	   return Rangecount;
-    }
+	}
 }
 
 RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange)
