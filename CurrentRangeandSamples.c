@@ -56,7 +56,7 @@ int findContinuousRangeCount(int *InputReadings, int NumberofReadings)
     }
 }
 
-RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange,int *InputReadings, int NumberofReadings)
+RangeReading detectRangeandOutputInCSVFormat( int min, int max, int numberInRange)
 {
 	RangeReading rangeReading;
 	rangeReading.StartIndex=min;
