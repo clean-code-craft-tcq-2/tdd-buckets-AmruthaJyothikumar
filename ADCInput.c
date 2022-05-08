@@ -7,8 +7,7 @@ int ScalingFactor(int ADC_Resolution)
 
 void ConvertAnalogToDigital(int ADCInput[], int numberOfSamples, int ADC_Resolution, int maxCurrentValue, int* currentConversionValues)
 {	
-	float currentValue, ConversionFactor;
-	
+	float currentValue, ConversionFactor;	
 	for (int i=0; i< numberOfSamples; i++)
 	{
 		ConversionFactor = (ADCInput[i]) / (ScalingFactor(ADC_Resolution));
