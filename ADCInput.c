@@ -18,7 +18,7 @@ void ConvertAnalogToDigital(int ADCInput[], int numberOfSamples, int ADC_Resolut
 	}	
 }
 
-void ChargingCurrentSenseValue(int ADCInput[], int numberOfSamples, int ADC_Resolution, int maxCurrentValue, int* currentSenseValues)
+void GetCurrentSensorValue(int ADCInput[], int numberOfSamples, int ADC_Resolution, int maxCurrentValue, int* currentSenseValues)
 {
 	int errorValue;
 	errorValue = (pow(2,ADC_Resolution) - 1);
